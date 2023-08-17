@@ -67,7 +67,7 @@ public class Main {
          // System.out.println(b3.hashCode());
         // soln- In that class ,create readResolve() method whose return type should be Object & will be returning class object.
         // ***************************************************************************************************************************
-    //  3. clone() method - if class implements Cloneable, & implementing clone() method & returns super.clone(), this code can break singleon.
+    //  3. clone() method - if class implements Cloneable, & implementing clone() method & returns super.clone(), these codes can break singleon.
         // these throws  CloneNotSupportedException 
         // Book b3 = (Book) b1.clone();
         // System.out.println(b3.hashCode());
