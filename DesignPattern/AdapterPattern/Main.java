@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Adapter pattern works here!!");
         // AppleCharger charger =new ChargerXYZ(); //iphone charger
-        AppleCharger charger =new AppleConnector(new DKCharger()); //Android charger+apple connector
-        Iphone iPhone = new Iphone(charger);
+        AppleCharger charger =new AppleConnectorWire(new SamsungCharger()); //Android charger+apple connector
+        Iphone15 iPhone = new Iphone15(charger);
         iPhone.chargeIphone();
        
     }
