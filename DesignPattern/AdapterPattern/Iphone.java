@@ -1,6 +1,6 @@
 package DesignPattern.AdapterPattern;
 
-public class Iphone {
+public class Iphone15 {
     private AppleCharger appleCharger;
 
     public Iphone(AppleCharger appleCharger) {
