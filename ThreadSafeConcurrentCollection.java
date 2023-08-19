@@ -9,10 +9,9 @@ public class ThreadSafeConcurrentCollection {
         list.add("java");
         list.add("python");
         list.add("javascript");
-        list.add("ruby");
         list.add("nodejs");
-        list.add("pearl");
-
+        list.add("reactjs");
+        list.add("nextjs");
         Runnable t1 = () -> {
             for (String str : list) {
                 System.out.println(str);
@@ -44,3 +43,14 @@ public class ThreadSafeConcurrentCollection {
 
     }
 }
+// ******OUTPUT*********
+// java
+// python
+// javascript
+// nodejs
+// reactjs
+// nextjs
+// hello
+// hi
+// *********************
+
