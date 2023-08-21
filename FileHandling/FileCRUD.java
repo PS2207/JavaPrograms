@@ -49,7 +49,8 @@ public class FileCRUD {
         case 1:
           System.out.println("Enter how many employees you want to insert: ");
           int n = sc.nextInt();
-          // n times this for-loop will be run, & n times emp_record will be added to collection i.e arraylist
+          // n times this for-loop will be run, & n times emp_record will be added to
+          // collection i.e arraylist
           for (int i = 1; i <= n; i++) {
             System.out.println("Enter employee id : ");
             int empid = sc.nextInt();
@@ -76,7 +77,7 @@ public class FileCRUD {
             while (li.hasNext())
               System.out.println(li.next());
             System.out.println("______________________________________________________");
-    
+
           } else {
             System.out.println("File Not Exists...");
           }
@@ -84,7 +85,7 @@ public class FileCRUD {
 
         case 3:
           if (file.isFile()) {
-            //read inserted input as 3
+            // read inserted input as 3
             ois = new ObjectInputStream(new FileInputStream(file));
             al = (ArrayList<Employee>) ois.readObject();
             ois.close();
@@ -128,7 +129,8 @@ public class FileCRUD {
               }
             }
             if (found) {
-              // since reocrd deleted from collection not file,so add these lines to update file,.
+              // since reocrd deleted from collection not file,so add these lines to update
+              // file,.
               oos = new ObjectOutputStream(new FileOutputStream(file));
               oos.writeObject(al);
               oos.close();
@@ -143,176 +145,175 @@ public class FileCRUD {
           }
           break;
         case 5:
-         if(file.isFile()){
-           ois = new ObjectInputStream(new FileInputStream(file));
-           al = (ArrayList<Employee>)ois.readObject();
-           ois.close();
-           
-           boolean found=false;
-           System.out.println("Enter empid to update: ");
-           int empid= sc.nextInt();
-           System.out.println("_________________________");
-           li=al.listIterator();
-           while(li.hasNext()){
-            Employee e = (Employee)li.next();
-            if(e.empId == empid){
-              System.out.println("Enter new empName: ");
-              String ename= sc2.nextLine();
-               System.out.println("Enter new salary:");
-               int salary= sc.nextInt();
-               li.set(new Employee(empid, ename, salary));
-               found=true;
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            al = (ArrayList<Employee>) ois.readObject();
+            ois.close();
+
+            boolean found = false;
+            System.out.println("Enter empid to update: ");
+            int empid = sc.nextInt();
+            System.out.println("_________________________");
+            li = al.listIterator();
+            while (li.hasNext()) {
+              Employee e = (Employee) li.next();
+              if (e.empId == empid) {
+                System.out.println("Enter new empName: ");
+                String ename = sc2.nextLine();
+                System.out.println("Enter new salary:");
+                int salary = sc.nextInt();
+                li.set(new Employee(empid, ename, salary));
+                found = true;
+              }
             }
-           }
-           if(found){
-               oos=new ObjectOutputStream(new FileOutputStream(file));
-               oos.writeObject(al);
-               oos.close();
-                System.out.println("Record updated successfully...");
-           }else{
-                System.out.println("Record Not Found...");
-           }
-         }else{
-          System.out.println("File not exists");
-         }
-         break;
-         case 6:
-          if(file.isFile()){
-            ois=new ObjectInputStream(new FileInputStream(file));
-            al=(ArrayList<Employee>) ois.readObject();
+            if (found) {
+              oos = new ObjectOutputStream(new FileOutputStream(file));
+              oos.writeObject(al);
+              oos.close();
+              System.out.println("Record updated successfully...");
+            } else {
+              System.out.println("Record Not Found...");
+            }
+          } else {
+            System.out.println("File not exists");
+          }
+          break;
+        case 6:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            al = (ArrayList<Employee>) ois.readObject();
             ois.close();
 
             Collections.sort(al, new Comparator<Employee>() {
-              public int compare(Employee e1, Employee e2){
+              public int compare(Employee e1, Employee e2) {
                 return e1.empId - e2.empId;
               }
             });
             System.out.println("__________________________________________-");
-            li=al.listIterator();
-            while(li.hasNext()){
-             System.out.println(li.next());
+            li = al.listIterator();
+            while (li.hasNext()) {
+              System.out.println(li.next());
             }
-          }else{
+          } else {
             System.out.println("File not exists...");
           }
           break;
 
-          case 7:
-           if(file.isFile()){
-             ois=new ObjectInputStream(new FileInputStream(file));
-             al=(ArrayList<Employee>) ois.readObject();
-             ois.close();
+        case 7:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            al = (ArrayList<Employee>) ois.readObject();
+            ois.close();
 
-             Collections.sort(al, new Comparator<Employee>() {
-              public int compare(Employee e1, Employee e2){
+            Collections.sort(al, new Comparator<Employee>() {
+              public int compare(Employee e1, Employee e2) {
                 return e1.empId - e2.empId;
               }
-             });
-             oos=new ObjectOutputStream(new FileOutputStream(file));
-             oos.writeObject(al);
-             oos.close();
-            
-             System.out.println("_________________________________________");
-             li=al.listIterator();
-             while(li.hasNext()){
+            });
+            oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(al);
+            oos.close();
+
+            System.out.println("_________________________________________");
+            li = al.listIterator();
+            while (li.hasNext()) {
               System.out.println(li.next());
-             }
-           }else{
-             System.out.println("File not exists...");
-           }
-           break;
+            }
+          } else {
+            System.out.println("File not exists...");
+          }
+          break;
 
-
-         case 8:
-           if(file.isFile()){
-            ois=new ObjectInputStream(new FileInputStream(file));
+        case 8:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
             ois.readObject();
             ois.close();
 
             Collections.sort(al, new Comparator<Employee>() {
-              public int compare(Employee e1, Employee e2){
+              public int compare(Employee e1, Employee e2) {
                 return e1.empName.compareTo(e2.empName);
               }
             });
             System.out.println("_________________________________________");
-            li=al.listIterator();
-            while(li.hasNext()){
+            li = al.listIterator();
+            while (li.hasNext()) {
               System.out.println(li.next());
             }
-           }else{
+          } else {
             System.out.println("File not exists...");
-           }
+          }
           break;
-         case 9:
-          if(file.isFile()){
-            ois=new ObjectInputStream(new FileInputStream(file));
+        case 9:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
             ois.readObject();
             ois.close();
             Collections.sort(al, new Comparator<Employee>() {
-              public int compare(Employee e1, Employee e2){
+              public int compare(Employee e1, Employee e2) {
                 return e1.empName.compareTo(e2.empName);
               }
             });
-             System.out.println("_________________________________________");
-             li=al.listIterator();
-             while(li.hasNext()){
+            System.out.println("_________________________________________");
+            li = al.listIterator();
+            while (li.hasNext()) {
               System.out.println(li.next());
-             }
-             oos=new ObjectOutputStream(new FileOutputStream(file));
-             oos.writeObject(al);
-             oos.close();
-          }else{
-             System.out.println("File not exists...");
+            }
+            oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(al);
+            oos.close();
+          } else {
+            System.out.println("File not exists...");
           }
           break;
-         case 10:
-          if(file.isFile()){
-            ois=new ObjectInputStream(new FileInputStream(file));
+        case 10:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
             ois.readObject();
             ois.close();
 
             Collections.sort(al, new Comparator<Employee>() {
-              public int compare(Employee e1, Employee e2){
+              public int compare(Employee e1, Employee e2) {
                 return e2.salary - e1.salary;
               }
             });
             System.out.println("_________________________________________");
-            li=al.listIterator();
-            while(li.hasNext()){
+            li = al.listIterator();
+            while (li.hasNext()) {
               System.out.println(li.next());
             }
 
-          }else{
+          } else {
             System.out.println("File not exists...");
           }
           break;
 
-          case 11:
-           if(file.isFile()){
-             ois=new ObjectInputStream(new FileInputStream(file));
-             ois.readObject();
-             ois.close();
-             
-             Collections.sort(al, new Comparator<Employee>() {
-               public int compare(Employee e1, Employee e2){
+        case 11:
+          if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            ois.readObject();
+            ois.close();
+
+            Collections.sort(al, new Comparator<Employee>() {
+              public int compare(Employee e1, Employee e2) {
                 return e1.salary - e2.salary;
-               }
-             });
+              }
+            });
 
-             oos=new ObjectOutputStream(new FileOutputStream(file));
-             oos.writeObject(al);
-             oos.close();
+            oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(al);
+            oos.close();
 
-             li=al.listIterator();
-             while(li.hasNext()){
+            li = al.listIterator();
+            while (li.hasNext()) {
               System.out.println(li.next());
-             }
-           }else{
+            }
+          } else {
             System.out.println("File not exists...");
-           }
-           break;
-        
-           default:
+          }
+          break;
+
+        default:
           System.out.println("You have entered invalid input!!");
       }
 
@@ -328,10 +329,10 @@ public class FileCRUD {
 // 5.UPDATE
 // 6.SORT By EmpId - On Screen
 // 7.SORT By EmpId - On File
-// 8.SORT By EmpName - On Screen        
+// 8.SORT By EmpName - On Screen
 // 9.SORT By EmpName - On File
 // 10.SORT By Salary in desc - On Screen
-// 11.SORT By Salary in asc- On File 
+// 11.SORT By Salary in asc- On File
 // 0.EXIT
 // Enter Your Choice :
 // 1(my input)
@@ -359,10 +360,10 @@ public class FileCRUD {
 // 5.UPDATE
 // 6.SORT By EmpId - On Screen
 // 7.SORT By EmpId - On File
-// 8.SORT By EmpName - On Screen        
+// 8.SORT By EmpName - On Screen
 // 9.SORT By EmpName - On File
 // 10.SORT By Salary in desc - On Screen
-// 11.SORT By Salary in asc- On File 
+// 11.SORT By Salary in asc- On File
 // 0.EXIT
 // Enter Your Choice :
 // 2(my input)
