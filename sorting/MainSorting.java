@@ -43,12 +43,12 @@ public class MainSorting {
         // write logic for custom object how java will compare these objects idwise,
         // namewise, agewise.
         // we can sort in 2 ways -
-        // (1)Comparable interface(present in java.lang) -it has compareTo() method, &
+        // (i)Comparable interface(present in java.lang) -it has compareTo() method, &
         // method contains one parameter. it supports single sorting logic.
-        // (2)Comparator interace(present in java.util) - it has compare() method, &
+        // (ii)Comparator interace(present in java.util) - it has compare() method, &
         // method contains two parameters. it supports multiple sorting logic.
         // Auto Un-Boxing
-        // (1). sorting by comparable
+        // (i). sorting by comparable
         List<Student> students = new ArrayList<>();
         students.add(new Student(10, "pragya", "26"));
         students.add(new Student(87, "Komal", "26"));
@@ -58,7 +58,7 @@ public class MainSorting {
         System.out.println("\nSorted with Comparable by id:- ");
         System.out.println(students);
 
-        // (2). sorting by comparator
+        // (ii). sorting by comparator
         List<Tutor> tutors = new ArrayList<>();
         tutors.add(new Tutor(45, "John", "55"));
         tutors.add(new Tutor(36, "Jemi", "34"));
