@@ -29,20 +29,36 @@ class Count {
     }
 
     public void countChar() {
-        // Way1- count Uppercase,Lowercase, sapce & so on using ASCII value
+      
+    //Way1- count Uppercase,Lowercase, sapce & so on using ASCII value
+        // for (int i = 0; i <= str.length() - 1; i++) {
+        //     char ch = str.charAt(i);
+        //     if (ch == 32) {
+        //         spaceCount++;
+        //     } else if (ch >= 97 && ch <= 122) {
+        //         lowerCount++;
+        //     } else if (ch >= 65 && ch <= 90) {
+        //         upperCount++;
+        //     } else if (ch >= 48 && ch <= 57) {
+        //         digitCount++;
+        //     } else {
+        //         otherCount++;
+        //     }
+        // }
+    //Way2- count Uppercase,Lowercase, sapce & so on using the Class "Character" by calling its methods.
         for (int i = 0; i <= str.length() - 1; i++) {
-            char ch = str.charAt(i);
-            if (ch == 32) {
-                spaceCount++;
-            } else if (ch >= 97 && ch <= 122) {
-                lowerCount++;
-            } else if (ch >= 65 && ch <= 90) {
-                upperCount++;
-            } else if (ch >= 48 && ch <= 57) {
-                digitCount++;
-            } else {
-                otherCount++;
-            }
+        char ch = str.charAt(i);
+        if (Character.isWhitespace(ch)) {
+        spaceCount++;
+        } else if (Character.isLowerCase(ch)) {
+        lowerCount++;
+        } else if (Character.isUpperCase(ch)) {
+        upperCount++;
+        } else if(Character.isDigit(ch)){
+        digitCount++;
+        }else{
+        otherCount++;
+        }
         }
         System.out.println("Space count: " + spaceCount);
         System.out.println("Lower count: " + lowerCount);
