@@ -14,8 +14,8 @@ public class Count_Space_LowerCase_UpperCase_OtherChars {
 
 // _____________________Another class start________________________
 class Count {
-    private final String str;
-    private final Scanner sc;
+    private String str;
+    private Scanner sc;
     private int spaceCount = 0;
     private int lowerCount = 0;
     private int upperCount = 0;
