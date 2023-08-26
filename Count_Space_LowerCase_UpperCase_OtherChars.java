@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// ____________________Main class start___________________________
 public class Count_Space_LowerCase_UpperCase_OtherChars {
     public static void main(String[] args) {
         System.out.println("Enter a string: ");
@@ -9,7 +10,9 @@ public class Count_Space_LowerCase_UpperCase_OtherChars {
         new Count(sc, str);
     }
 }
+// ____________________Main class end______________________________
 
+// _____________________Another class start________________________
 class Count {
     private final String str;
     private final Scanner sc;
